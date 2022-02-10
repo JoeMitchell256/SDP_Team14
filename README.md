@@ -1,4 +1,9 @@
-# SDP Team 14 GPS Project
-This website is for SDP Team 14 2022. It will be used as a map to locate GPS modules for the Mesh Network!
-Latitude Range - (-90 to +90)
-Longitude Range - (-180 to +80)
+# SDP Team 14 Website
+
+We are SDP Team 14 and we have built a mesh network to help rescue people in a natural disaster.
+
+This website will display our wonderful images of ourselves as well as our PDR, MDR, and future CDR, FPR
+
+This website will be updated regularly throughout the Spring 2022 semester!
+
+
