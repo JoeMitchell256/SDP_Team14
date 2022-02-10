@@ -5,95 +5,9 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <canvas id="back" width="1000" height="500" style="border:1px solid #000000"></canvas>
     <canvas id="myCanvas" width="1000" height="500" style="border:1px solid #000000"></canvas>
-    <script> // src="content.js" type="text/javascript"
+    <script src="content.js" type="text/javascript"> // src="content.js" type="text/javascript"
 
-      function readTextFile(file)
-      {
-        var rawFile = new XMLHttpRequest();
-        rawFile.open("GET", file, false);
-        rawFile.onreadystatechange = function ()
-        {
-            if(rawFile.readyState === 4)
-            {
-                if(rawFile.status === 200 || rawFile.status == 0)
-                {
-                    var allText = rawFile.responseText;
-                    alert(allText);
-                }
-            }
-        }
-        rawFile.send(null);
-      }
-
-      readTextFile("file:///Users/jm/Desktop/SDP14_GPS-main/inputfile.pages");
-
-      //This is a test to see if text can be printed onto the canvas in the html file...
-      var canvas = document.getElementById('myCanvas');
-      var ctx = canvas.getContext('2d');
-
-      //This will place the latitude boundaries on the canvas
-      ctx.fillStyle= "red";
-      ctx.fillText("Lat:90",500,30);
-
-      ctx.fillText("Lat:-90",500,470);
-
-      //This will place the longitude boundaries on the canvas
-      ctx.fillStyle= "blue";
-      ctx.fillText("Long:-180",10,250);
-
-      ctx.fillText("Long:+80",950,250);
-
-      //Draw a border around to seperate the gps coordinate positions
-      ctx.fillStyle= "black";
-      //Longitude border
-      ctx.moveTo(80,40);
-      ctx.lineTo(80,460);
-
-      ctx.moveTo(80,40);
-      ctx.lineTo(940,40);
-
-      //Latitude border
-      ctx.moveTo(80,460);
-      ctx.lineTo(940,460);
-
-      ctx.moveTo(940,40);
-      ctx.lineTo(940,460);
-
-      ctx.stroke();
-
-      //Provide a test input for the latitude - longitude coordinates
-      // Lets test out the gps position: long:lat: (40, 0)
-      // These values will be collected from the state file
-
-      var longitude = -40;//Range from -180 to +80
-      var latitude = 45;//Range from -90 to +90
-
-      //We need to design another linear function to properly convert the points to place on the marker on the canvas
-      // Lat_coordinate = from (40,460) -90 to +90   range = 460 - 40 = 420 points divided from -90 to +90  range = 180 points
-      // Long_coordinate = from (80,940) -180 to +80    range = 940 - 80 = 860 points divided from -180 to +80 range = 260 points
-
-      //We can floor the value of Latitude and Longitude, then plot the markers on the GPS using a rectange to mark the position
-
-      //So for Latitude : 420 / 180 = 2.33 rounded down to 2
-      //So for Longitude : 860 / 260 = 3.3 round to 3
-
-      //Normalize the input from the state file
-
-      //To normalize the longitude : take input longitude and add 180 to it
-      //To normalize the latitude : take input latitude and add 90 to it
-
-      //So for Latitude = 2 * (inputLat+90) + 40
-      //And for Longitude = 3 * (inputLong+180) + 80
-
-      longitude = 3.3*(longitude + 180) + 80;
-      latitude = 2.33*(-latitude + 90) + 40;
-
-      //Longitude should be the x coordinate
-      //Latitude should be the y coordinate
-
-      ctx.rect(longitude-2.5,latitude-2.5,5,5);
-
-      ctx.stroke();
+      
 
 
     </script>
@@ -102,13 +16,18 @@
   </head>
   <body>
 
+  <div id="x"></div>
 
+    <script src="content.js" type="text/javascript">
+/*
+      var img = document.createElement("img");
+      img.src = "matplotlib-grid-02.png";
 
-    <div class="container" style = "position:fixed; left:10px; top: 550px;">
-      <div class="box-1">
-        <h1>SDP Team 14 GPS Map</h1> <!-- This is the actual 'Title' of the page for the website -->
-        <p>The purpose of this website is to plot the current location of our GPS nodes on a single canvas map in javascript</p>
-      </div>
-    </div>
+      var div = document.getElementById("x");
+      div.appendChild(img);
+*/
+    </script>
+
+    
   </body>
 </html>
